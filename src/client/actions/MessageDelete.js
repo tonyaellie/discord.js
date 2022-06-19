@@ -7,6 +7,7 @@ class MessageDeleteAction extends Action {
   handle(data) {
     const client = this.client;
     const channel = this.getChannel(data);
+    if (!channel.messages) return {};
     let message;
     if (channel) {
       message = this.getMessage(data, channel);
